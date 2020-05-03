@@ -47,7 +47,6 @@ def tray_list(plugin, url, search_query=False):
 
 
 @Resolver.register
-@U.isLoggedIn
 def play_vod(plugin, contentId, subtag, label, drm=False):
     playbackUrl, licenceUrl, playbackProto = api.getPlay(
         contentId, subtag, drm)
