@@ -163,8 +163,6 @@ class HotstarAPI:
 
     @staticmethod
     def _getPlayHeaders(includeST=False, playbackUrl=None):
-        with PersistentDict("userdata.pickle") as db:
-            token = db.get("token")
         if playbackUrl:
             parsed_url = urlparse(playbackUrl)
             qs = parse_qs(parsed_url.query)
@@ -174,7 +172,6 @@ class HotstarAPI:
             "X-Country-Code": "in",
             "X-HS-AppVersion": "3.3.0",
             "X-HS-Platform": "firetv",
-            "X-HS-UserToken": token,
             "Cookie": playbackUrl and hdnea,
             "User-Agent": "Hotstar;in.startv.hotstar/3.3.0 (Android/8.1.0)"
         }
